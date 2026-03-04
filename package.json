@@ -2,6 +2,14 @@
   "name": "printribe",
   "version": "0.1.0",
   "private": true,
+
+  "eslintConfig": {
+  "extends": ["react-app"],
+  "rules": {
+    "no-unused-vars": "off"
+  }
+},
+
   "dependencies": {
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
