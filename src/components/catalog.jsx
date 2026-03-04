@@ -38,7 +38,8 @@ const Catalog = () => {
                 return  category.visible == "true" && <div className="col-lg-4 col-md-6 col-sm-12 p-2" key={category.id}>
                 <div className={`${styles.catalogcontainer}`} >
                     <Link to={`/products${category.url}/${category.id}`} className={styles.catalogText}>
-                        <img class={`${styles.cardImg}`} src={process.env.REACT_APP_IMAGE_BASE_URL+category.img} alt={category.name} />
+                        {/* <img class={`${styles.cardImg}`} src={process.env.REACT_APP_IMAGE_BASE_URL+category.img} alt={category.name} /> */}
+                        <img className={styles.cardImg} src={`${process.env.REACT_APP_IMAGE_BASE_URL}${category.img}`} alt={category.name}/>
                         <div className={styles.card_body}>
                             <p class="card-text fw-bold">{category.name}</p>
                         </div></Link>

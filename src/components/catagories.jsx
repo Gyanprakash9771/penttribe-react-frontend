@@ -28,7 +28,7 @@ function Catagories() {
       {products.map(
         (product) =>
           product.visible !== "false" && (
-            <Accordion className={styles.accordin}>
+            <Accordion key={product.id} className={styles.accordin}>
               <Accordion.Item eventKey="0" style={{ border: "none" }}>
                 <Accordion.Header style={{ border: "none" }}>
                   {" "}
@@ -59,7 +59,8 @@ function Catagories() {
                                         textDecoration: "none",
                                         fontWeight: "400",
                                       }}
-                                      to={`/products${subproduct.url}/${subproduct.id}`}
+                                      // to={`/products${subproduct.url}/${subproduct.id}`} Gyan
+                                      to={`/products${product.url}/${subproduct.id}`}
                                     >
                                       <span>{subproduct.name}</span>
                                     </Link>
@@ -80,7 +81,8 @@ function Catagories() {
                                               >
                                                 <Link
                                                   className="Link"
-                                                  to={`/products/${subsubproduct.id}`}
+                                                  // to={`/products/${subsubproduct.id}`}
+                                                  to={`/products${product.url}/${subproduct.id}/${subsubproduct.id}`}
                                                   style={{
                                                     textDecoration: "none",
                                                     fontWeight: "400",

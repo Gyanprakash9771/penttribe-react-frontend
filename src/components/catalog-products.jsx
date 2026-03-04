@@ -25,6 +25,7 @@ const Catalogproducts = () => {
       .get("/products/getProducts")
       .then(({ data }) => {
         console.log(data.maincat.categories);
+         console.log("FULL API RESPONSE:", data);
         // setproducts(data.maincat.categories);
         data.maincat.categories.map((product) => {
           product.subCategories.map((subproduct) => {
@@ -129,7 +130,8 @@ const Catalogproducts = () => {
                 {console.log(category)}
                 {category.active && category.active === "true" &&  (
                   <>
-                  {category.quantities_updated&&<div
+                  {/* {category.quantities_updated */}
+                  {category.active === "true" &&<div
                     className="col-lg-4 col-md-6 col-sm-12 p-2"
                     key={category.id}
                   >

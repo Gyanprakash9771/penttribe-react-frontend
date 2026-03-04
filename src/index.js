@@ -8,7 +8,8 @@ import App from "./App";
 
 require("dotenv").config();
 
-axios.defaults.baseURL = "https://api.theprintribe.com/api";
+// axios.defaults.baseURL = "https://api.theprintribe.com/api";
+axios.defaults.baseURL = "http://localhost:500/api";
 ReactDOM.render(
   <React.StrictMode>
     <App />

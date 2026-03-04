@@ -50,8 +50,9 @@ const products = data.products.filter(item=>item.active=="true")
   }, [searchItem]);
 
   useEffect(() => {
-    axios
-      .get("https://api.theprintribe.com/api/adminSettings/getAllSettings")
+    // axios
+    //   .get("https://api.theprintribe.com/api/adminSettings/getAllSettings")
+    axios.get("/adminSettings/getAllSettings")
       .then(({ data }) => {
         console.log(data);
         setAdminSettings(data.settingsData.settingsData);

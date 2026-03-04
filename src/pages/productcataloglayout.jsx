@@ -13,16 +13,19 @@ function Productataloglayout() {
   useEffect(() => {
     document.documentElement.scrollTop = 0;
   }, []);
+  
   return (
     <>
       <Layout>
         <div className="row mx-0">
           <Navbar />
           <Custom />
-          <div className="col-sm-4 col-lg-3 d-flex align-items-end flex-column d-none d-sm-flex">
+          {/* <div className="col-sm-4 col-lg-3 d-flex align-items-end flex-column d-none d-sm-flex">
+            <Catagories />
+          </div> */}
+          <div className="col-sm-4 col-lg-3">
             <Catagories />
           </div>
-
           <div className="col-sm-8 col-lg-8">
             <Catalog />
           </div>
