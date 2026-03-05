@@ -7,11 +7,18 @@
   height: 612x;
 }
 
-.canvas-container {
+/* .canvas-container {
   width: 100%;
-  height: 612px;
+  height: 612px;   Gyan commented
   position: relative;
   user-select: none;
+} */
+ .canvasSet {
+  position: absolute;
+  width: 470px;
+  height: 612px;
+  left: 0;
+  top: 0;
 }
 
 /* HIDE RADIO */

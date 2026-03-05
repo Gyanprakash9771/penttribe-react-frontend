@@ -7583,7 +7583,7 @@ function Hero() {
                         <div
                           id="canvasEle"
                           ref={designRef}
-                          class={canvasStyles["canvas-container"]}
+                          className={canvasStyles["canvas-container"]}//class->className Gyan
                         >
                           {fabricInfo && fabricInfo.productId !== undefined && sides === "one" ? (
                             <canvas id="canvasOne" ref={ref} width={470} height={612} className={canvasStyles.canvasSet} />
