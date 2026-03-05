@@ -583,9 +583,7 @@ function Hero() {
         var newImg = new Image();
         newImg.src = urlTshirt;
         fabric.Image.fromURL(urlTshirt, function (img) {
-           // Fix canvas size ->Gyan
-          editor?.canvas.setWidth(470);
-          editor?.canvas.setHeight(612);
+           
           img.scaleToHeight(612);
           img.scaleToWidth(417);
           img.selectable = false;
@@ -5209,8 +5207,7 @@ function Hero() {
         var newImg = new Image();
         newImg.src = urlTshirt;
         fabric.Image.fromURL(urlTshirt, function (img) {
-          editor?.canvas.setWidth(470);
-          editor?.canvas.setHeight(612);
+          
           img.scaleToHeight(612);
           img.scaleToWidth(417);
           img.selectable = false;
