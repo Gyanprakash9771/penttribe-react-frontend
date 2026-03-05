@@ -583,9 +583,7 @@ function Hero() {
         var newImg = new Image();
         newImg.src = urlTshirt;
         fabric.Image.fromURL(urlTshirt, function (img) {
-           // Fix canvas size ->Gyan
-          editor?.canvas.setWidth(470);
-          editor?.canvas.setHeight(612);
+           
           img.scaleToHeight(612);
           img.scaleToWidth(417);
           img.selectable = false;
@@ -7583,7 +7581,7 @@ function Hero() {
                         <div
                           id="canvasEle"
                           ref={designRef}
-                          className={canvasStyles["canvas-container"]}//class->className Gyan
+                          className={canvasStyles["canvas-container"]}//class->className
                         >
                           {fabricInfo && fabricInfo.productId !== undefined && sides === "one" ? (
                             <canvas id="canvasOne" ref={ref} width={470} height={612} className={canvasStyles.canvasSet} />
