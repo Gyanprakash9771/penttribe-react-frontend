@@ -543,10 +543,10 @@ function Hero() {
 
       //defining the Rectangle constraint for users designs
       var Rect = new fabric.Rect({
-        width: fabricInfo.variant[colorIndex].frontImgDimensions.width +50,
-        height: fabricInfo.variant[colorIndex].frontImgDimensions.height +50,
-        top: fabricInfo.variant[colorIndex].frontImgDimensions.top -25,
-        left: fabricInfo.variant[colorIndex].frontImgDimensions.left -25,
+        width: fabricInfo.variant[colorIndex].frontImgDimensions.width + 50,
+        height: fabricInfo.variant[colorIndex].frontImgDimensions.height + 50,
+        top: fabricInfo.variant[colorIndex].frontImgDimensions.top-25,
+        left: fabricInfo.variant[colorIndex].frontImgDimensions.left-25,
         selectable: false,
         hasControls: false,
         hasRotatingPoint: false,
