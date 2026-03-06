@@ -543,10 +543,10 @@ function Hero() {
 
       //defining the Rectangle constraint for users designs
       var Rect = new fabric.Rect({
-        width: fabricInfo.variant[colorIndex].frontImgDimensions.width,
-        height: fabricInfo.variant[colorIndex].frontImgDimensions.height,
-        top: fabricInfo.variant[colorIndex].frontImgDimensions.top,
-        left: fabricInfo.variant[colorIndex].frontImgDimensions.left,
+        width: fabricInfo.variant[colorIndex].frontImgDimensions.width +80,
+        height: fabricInfo.variant[colorIndex].frontImgDimensions.height +80,
+        top: fabricInfo.variant[colorIndex].frontImgDimensions.top -40,
+        left: fabricInfo.variant[colorIndex].frontImgDimensions.left -40,
         selectable: false,
         hasControls: false,
         hasRotatingPoint: false,
@@ -562,10 +562,10 @@ function Hero() {
           hasControls: false,
           hasRotatingPoint: false,
           evented: false,
-          width: fabricInfo.variant[colorIndex].frontImgDimensions.width,
-          height: fabricInfo.variant[colorIndex].frontImgDimensions.height,
-          top: fabricInfo.variant[colorIndex].frontImgDimensions.top,
-          left: fabricInfo.variant[colorIndex].frontImgDimensions.left,
+          width: fabricInfo.variant[colorIndex].frontImgDimensions.width +80,
+          height: fabricInfo.variant[colorIndex].frontImgDimensions.height +80,
+          top: fabricInfo.variant[colorIndex].frontImgDimensions.top -40,
+          left: fabricInfo.variant[colorIndex].frontImgDimensions.left -40,
         });
         if (editor?.canvas) {
           editor.canvas.clipPath = clipPath;
@@ -2283,8 +2283,8 @@ function Hero() {
             img.globalCompositeOperation = "source-atop";
             img.opacity = 0.8;
             let scaleX;
-            scaleX = parseInt(470) / parseInt(img.width) *2;
-            let scaleY = 612 / parseInt(img.height)*2;
+            scaleX = parseInt(470) / parseInt(img.width);
+            let scaleY = 612 / parseInt(img.height);
             img.set({
               scaleX: scaleX,
               scaleY: scaleY,
