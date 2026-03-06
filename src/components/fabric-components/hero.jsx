@@ -2283,8 +2283,8 @@ function Hero() {
             img.globalCompositeOperation = "source-atop";
             img.opacity = 0.8;
             let scaleX;
-            scaleX = parseInt(470) / parseInt(img.width);
-            let scaleY = 612 / parseInt(img.height);
+            scaleX = parseInt(470) / parseInt(img.width) *2;
+            let scaleY = 612 / parseInt(img.height)*2;
             img.set({
               scaleX: scaleX,
               scaleY: scaleY,
@@ -2327,9 +2327,9 @@ function Hero() {
 
             let aspectRatioWidth = 0;
 
-            aspectRatioHeight = imageUploaded.height / imageUploaded.width *2;
+            aspectRatioHeight = imageUploaded.height / imageUploaded.width;
 
-            aspectRatioWidth = imageUploaded.width/ imageUploaded.height *2;
+            aspectRatioWidth = imageUploaded.width/ imageUploaded.height;
 
             let adjHeight = 0;
             let adjWidth = 0;
