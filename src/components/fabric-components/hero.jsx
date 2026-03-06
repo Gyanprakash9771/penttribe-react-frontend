@@ -4650,20 +4650,20 @@ function Hero() {
     } else if (letter == "two") {
       if (fabricInfo && Object.keys(fabricInfo).length > 0) {
         var Rect = new fabric.Rect({
-          width: fabricInfo.variant[colorIndex].backImgDimensions.width,
-          height: fabricInfo.variant[colorIndex].backImgDimensions.height,
-          top: fabricInfo.variant[colorIndex].backImgDimensions.top,
-          left: fabricInfo.variant[colorIndex].backImgDimensions.left,
+          width: fabricInfo.variant[colorIndex].backImgDimensions.width +80,
+          height: fabricInfo.variant[colorIndex].backImgDimensions.height +80,
+          top: fabricInfo.variant[colorIndex].backImgDimensions.top -40,
+          left: fabricInfo.variant[colorIndex].backImgDimensions.left -40,
           selectable: false,
           strokeDashArray: [5, 2],
           stroke: "grey",
           fill: "transparent",
         });
         var clipPath = new fabric.Rect({
-          width: fabricInfo.variant[colorIndex].backImgDimensions.width,
-          height: fabricInfo.variant[colorIndex].backImgDimensions.height,
-          top: fabricInfo.variant[colorIndex].backImgDimensions.top,
-          left: fabricInfo.variant[colorIndex].backImgDimensions.left,
+          width: fabricInfo.variant[colorIndex].backImgDimensions.width +80,
+          height: fabricInfo.variant[colorIndex].backImgDimensions.height +80,
+          top: fabricInfo.variant[colorIndex].backImgDimensions.top -40,
+          left: fabricInfo.variant[colorIndex].backImgDimensions.left -40,
         });
         if (editor?.canvas) {
           editor.canvas.clipPath = clipPath;
@@ -4673,20 +4673,20 @@ function Hero() {
     } else if (letter == "three") {
       if (fabricInfo && Object.keys(fabricInfo).length > 0) {
         var Rect = new fabric.Rect({
-          width: fabricInfo.variant[colorIndex].leftImgDimensions.width,
-          height: fabricInfo.variant[colorIndex].leftImgDimensions.height,
-          top: fabricInfo.variant[colorIndex].leftImgDimensions.top,
-          left: fabricInfo.variant[colorIndex].leftImgDimensions.left,
+          width: fabricInfo.variant[colorIndex].leftImgDimensions.width +80,
+          height: fabricInfo.variant[colorIndex].leftImgDimensions.height +80,
+          top: fabricInfo.variant[colorIndex].leftImgDimensions.top -40,
+          left: fabricInfo.variant[colorIndex].leftImgDimensions.left -40,
           selectable: false,
           strokeDashArray: [5, 2],
           stroke: "grey",
           fill: "transparent",
         });
         var clipPath = new fabric.Rect({
-          width: fabricInfo.variant[colorIndex].leftImgDimensions.width,
-          height: fabricInfo.variant[colorIndex].leftImgDimensions.height,
-          top: fabricInfo.variant[colorIndex].leftImgDimensions.top,
-          left: fabricInfo.variant[colorIndex].leftImgDimensions.left,
+          width: fabricInfo.variant[colorIndex].leftImgDimensions.width +80,
+          height: fabricInfo.variant[colorIndex].leftImgDimensions.height +80,
+          top: fabricInfo.variant[colorIndex].leftImgDimensions.top -40,
+          left: fabricInfo.variant[colorIndex].leftImgDimensions.left -40,
         });
         if (editor?.canvas) {
           editor.canvas.clipPath = clipPath;
@@ -4696,20 +4696,20 @@ function Hero() {
     } else if (letter == "four") {
       if (fabricInfo && Object.keys(fabricInfo).length > 0) {
         var Rect = new fabric.Rect({
-          width: fabricInfo.variant[colorIndex].rightImgDimensions.width,
-          height: fabricInfo.variant[colorIndex].rightImgDimensions.height,
-          top: fabricInfo.variant[colorIndex].rightImgDimensions.top,
-          left: fabricInfo.variant[colorIndex].rightImgDimensions.left,
+          width: fabricInfo.variant[colorIndex].rightImgDimensions.width +80,
+          height: fabricInfo.variant[colorIndex].rightImgDimensions.height +80,
+          top: fabricInfo.variant[colorIndex].rightImgDimensions.top -40,
+          left: fabricInfo.variant[colorIndex].rightImgDimensions.left -40,
           selectable: false,
           strokeDashArray: [5, 2],
           stroke: "grey",
           fill: "transparent",
         });
         var clipPath = new fabric.Rect({
-          width: fabricInfo.variant[colorIndex].rightImgDimensions.width,
-          height: fabricInfo.variant[colorIndex].rightImgDimensions.height,
-          top: fabricInfo.variant[colorIndex].rightImgDimensions.top,
-          left: fabricInfo.variant[colorIndex].rightImgDimensions.left,
+          width: fabricInfo.variant[colorIndex].rightImgDimensions.width +80,
+          height: fabricInfo.variant[colorIndex].rightImgDimensions.height +80,
+          top: fabricInfo.variant[colorIndex].rightImgDimensions.top -40,
+          left: fabricInfo.variant[colorIndex].rightImgDimensions.left -40,
         });
         if (editor?.canvas) {
           editor.canvas.clipPath = clipPath;
@@ -5138,58 +5138,58 @@ function Hero() {
       } else if (sides == "two") {
         if (fabricInfo && Object.keys(fabricInfo).length > 0) {
           Rect = new fabric.Rect({
-            width: fabricInfo.variant[colorIndex].backImgDimensions.width,
-            height: fabricInfo.variant[colorIndex].backImgDimensions.height,
-            top: fabricInfo.variant[colorIndex].backImgDimensions.top,
-            left: fabricInfo.variant[colorIndex].backImgDimensions.left,
+            width: fabricInfo.variant[colorIndex].backImgDimensions.width +80,
+            height: fabricInfo.variant[colorIndex].backImgDimensions.height +80,
+            top: fabricInfo.variant[colorIndex].backImgDimensions.top -40,
+            left: fabricInfo.variant[colorIndex].backImgDimensions.left -40,
             selectable: false,
             strokeDashArray: [5, 2],
             stroke: "grey",
             fill: "transparent",
           });
           clipPed = new fabric.Rect({
-            width: fabricInfo.variant[colorIndex].backImgDimensions.width,
-            height: fabricInfo.variant[colorIndex].backImgDimensions.height,
-            top: fabricInfo.variant[colorIndex].backImgDimensions.top,
-            left: fabricInfo.variant[colorIndex].backImgDimensions.left,
+            width: fabricInfo.variant[colorIndex].backImgDimensions.width +80,
+            height: fabricInfo.variant[colorIndex].backImgDimensions.height +80,
+            top: fabricInfo.variant[colorIndex].backImgDimensions.top -40,
+            left: fabricInfo.variant[colorIndex].backImgDimensions.left -40,
           });
         }
       } else if (sides == "three") {
         if (fabricInfo && Object.keys(fabricInfo).length > 0) {
           Rect = new fabric.Rect({
-            width: fabricInfo.variant[colorIndex].leftImgDimensions.width,
-            height: fabricInfo.variant[colorIndex].leftImgDimensions.height,
-            top: fabricInfo.variant[colorIndex].leftImgDimensions.top,
-            left: fabricInfo.variant[colorIndex].leftImgDimensions.left,
+            width: fabricInfo.variant[colorIndex].leftImgDimensions.width +80,
+            height: fabricInfo.variant[colorIndex].leftImgDimensions.height +80,
+            top: fabricInfo.variant[colorIndex].leftImgDimensions.top -40,
+            left: fabricInfo.variant[colorIndex].leftImgDimensions.left -40,
             selectable: false,
             strokeDashArray: [5, 2],
             stroke: "grey",
             fill: "transparent",
           });
           clipPed = new fabric.Rect({
-            width: fabricInfo.variant[colorIndex].leftImgDimensions.width,
-            height: fabricInfo.variant[colorIndex].leftImgDimensions.height,
-            top: fabricInfo.variant[colorIndex].leftImgDimensions.top,
-            left: fabricInfo.variant[colorIndex].leftImgDimensions.left,
+            width: fabricInfo.variant[colorIndex].leftImgDimensions.width +80,
+            height: fabricInfo.variant[colorIndex].leftImgDimensions.height +80,
+            top: fabricInfo.variant[colorIndex].leftImgDimensions.top -40,
+            left: fabricInfo.variant[colorIndex].leftImgDimensions.left -40,
           });
         }
       } else if (sides == "four") {
         if (fabricInfo && Object.keys(fabricInfo).length > 0) {
           Rect = new fabric.Rect({
-            width: fabricInfo.variant[colorIndex].rightImgDimensions.width,
-            height: fabricInfo.variant[colorIndex].rightImgDimensions.height,
-            top: fabricInfo.variant[colorIndex].rightImgDimensions.top,
-            left: fabricInfo.variant[colorIndex].rightImgDimensions.left,
+            width: fabricInfo.variant[colorIndex].rightImgDimensions.width +80,
+            height: fabricInfo.variant[colorIndex].rightImgDimensions.height+80,
+            top: fabricInfo.variant[colorIndex].rightImgDimensions.top -40,
+            left: fabricInfo.variant[colorIndex].rightImgDimensions.left -40,
             selectable: false,
             strokeDashArray: [5, 2],
             stroke: "grey",
             fill: "transparent",
           });
           clipPed = new fabric.Rect({
-            width: fabricInfo.variant[colorIndex].rightImgDimensions.width,
-            height: fabricInfo.variant[colorIndex].rightImgDimensions.height,
-            top: fabricInfo.variant[colorIndex].rightImgDimensions.top,
-            left: fabricInfo.variant[colorIndex].rightImgDimensions.left,
+            width: fabricInfo.variant[colorIndex].rightImgDimensions.width +80,
+            height: fabricInfo.variant[colorIndex].rightImgDimensions.height +80,
+            top: fabricInfo.variant[colorIndex].rightImgDimensions.top -40,
+            left: fabricInfo.variant[colorIndex].rightImgDimensions.left -40,
           });
         }
       }
@@ -7055,10 +7055,10 @@ function Hero() {
     } else if (sides == "two") {
       if (fabricInfo && Object.keys(fabricInfo).length > 0) {
         Rect = new fabric.Rect({
-          width: fabricInfo.variant[colorIndex].backImgDimensions.width,
-          height: fabricInfo.variant[colorIndex].backImgDimensions.height,
-          top: fabricInfo.variant[colorIndex].backImgDimensions.top,
-          left: fabricInfo.variant[colorIndex].backImgDimensions.left,
+          width: fabricInfo.variant[colorIndex].backImgDimensions.width +80,
+          height: fabricInfo.variant[colorIndex].backImgDimensions.height +80,
+          top: fabricInfo.variant[colorIndex].backImgDimensions.top-40,
+          left: fabricInfo.variant[colorIndex].backImgDimensions.left-40,
           selectable: false,
           strokeDashArray: [5, 2],
           stroke: "grey",
@@ -7068,10 +7068,10 @@ function Hero() {
     } else if (sides == "three") {
       if (fabricInfo && Object.keys(fabricInfo).length > 0) {
         Rect = new fabric.Rect({
-          width: fabricInfo.variant[colorIndex].leftImgDimensions.width,
-          height: fabricInfo.variant[colorIndex].leftImgDimensions.height,
-          top: fabricInfo.variant[colorIndex].leftImgDimensions.top,
-          left: fabricInfo.variant[colorIndex].leftImgDimensions.left,
+          width: fabricInfo.variant[colorIndex].leftImgDimensions.width +80,
+          height: fabricInfo.variant[colorIndex].leftImgDimensions.height +80,
+          top: fabricInfo.variant[colorIndex].leftImgDimensions.top -40,
+          left: fabricInfo.variant[colorIndex].leftImgDimensions.left -40,
           selectable: false,
           strokeDashArray: [5, 2],
           stroke: "grey",
@@ -7081,10 +7081,10 @@ function Hero() {
     } else if (sides == "four") {
       if (fabricInfo && Object.keys(fabricInfo).length > 0) {
         Rect = new fabric.Rect({
-          width: fabricInfo.variant[colorIndex].rightImgDimensions.width,
-          height: fabricInfo.variant[colorIndex].rightImgDimensions.height,
-          top: fabricInfo.variant[colorIndex].rightImgDimensions.top,
-          left: fabricInfo.variant[colorIndex].rightImgDimensions.left,
+          width: fabricInfo.variant[colorIndex].rightImgDimensions.width +80,
+          height: fabricInfo.variant[colorIndex].rightImgDimensions.height +80,
+          top: fabricInfo.variant[colorIndex].rightImgDimensions.top -40,
+          left: fabricInfo.variant[colorIndex].rightImgDimensions.left -40,
           selectable: false,
           strokeDashArray: [5, 2],
           stroke: "grey",
@@ -7140,10 +7140,10 @@ function Hero() {
     } else if (sides == "two") {
       if (fabricInfo && Object.keys(fabricInfo).length > 0) {
         Rect = new fabric.Rect({
-          width: fabricInfo.variant[colorIndex].backImgDimensions.width,
-          height: fabricInfo.variant[colorIndex].backImgDimensions.height,
-          top: fabricInfo.variant[colorIndex].backImgDimensions.top,
-          left: fabricInfo.variant[colorIndex].backImgDimensions.left,
+          width: fabricInfo.variant[colorIndex].backImgDimensions.width +80,
+          height: fabricInfo.variant[colorIndex].backImgDimensions.height +80,
+          top: fabricInfo.variant[colorIndex].backImgDimensions.top -40,
+          left: fabricInfo.variant[colorIndex].backImgDimensions.left -40,
           selectable: false,
           strokeDashArray: [5, 2],
           stroke: "grey",
@@ -7153,10 +7153,10 @@ function Hero() {
     } else if (sides == "three") {
       if (fabricInfo && Object.keys(fabricInfo).length > 0) {
         Rect = new fabric.Rect({
-          width: fabricInfo.variant[colorIndex].leftImgDimensions.width,
-          height: fabricInfo.variant[colorIndex].leftImgDimensions.height,
-          top: fabricInfo.variant[colorIndex].leftImgDimensions.top,
-          left: fabricInfo.variant[colorIndex].leftImgDimensions.left,
+          width: fabricInfo.variant[colorIndex].leftImgDimensions.width +80,
+          height: fabricInfo.variant[colorIndex].leftImgDimensions.height +80,
+          top: fabricInfo.variant[colorIndex].leftImgDimensions.top -40,
+          left: fabricInfo.variant[colorIndex].leftImgDimensions.left -40,
           selectable: false,
           strokeDashArray: [5, 2],
           stroke: "grey",
@@ -7166,10 +7166,10 @@ function Hero() {
     } else if (sides == "four") {
       if (fabricInfo && Object.keys(fabricInfo).length > 0) {
         Rect = new fabric.Rect({
-          width: fabricInfo.variant[colorIndex].rightImgDimensions.width,
-          height: fabricInfo.variant[colorIndex].rightImgDimensions.height,
-          top: fabricInfo.variant[colorIndex].rightImgDimensions.top,
-          left: fabricInfo.variant[colorIndex].rightImgDimensions.left,
+          width: fabricInfo.variant[colorIndex].rightImgDimensions.width +80,
+          height: fabricInfo.variant[colorIndex].rightImgDimensions.height +80,
+          top: fabricInfo.variant[colorIndex].rightImgDimensions.top -40,
+          left: fabricInfo.variant[colorIndex].rightImgDimensions.left -40,
           selectable: false,
           strokeDashArray: [5, 2],
           stroke: "grey",
@@ -7229,10 +7229,10 @@ function Hero() {
     } else if (sides == "two") {
       if (fabricInfo && Object.keys(fabricInfo).length > 0) {
         Rect = new fabric.Rect({
-          width: fabricInfo.variant[colorIndex].backImgDimensions.width,
-          height: fabricInfo.variant[colorIndex].backImgDimensions.height,
-          top: fabricInfo.variant[colorIndex].backImgDimensions.top,
-          left: fabricInfo.variant[colorIndex].backImgDimensions.left,
+          width: fabricInfo.variant[colorIndex].backImgDimensions.width +80,
+          height: fabricInfo.variant[colorIndex].backImgDimensions.height +80,
+          top: fabricInfo.variant[colorIndex].backImgDimensions.top -40,
+          left: fabricInfo.variant[colorIndex].backImgDimensions.left -40,
           selectable: false,
           strokeDashArray: [5, 2],
           stroke: "grey",
@@ -7242,10 +7242,10 @@ function Hero() {
     } else if (sides == "three") {
       if (fabricInfo && Object.keys(fabricInfo).length > 0) {
         Rect = new fabric.Rect({
-          width: fabricInfo.variant[colorIndex].leftImgDimensions.width,
-          height: fabricInfo.variant[colorIndex].leftImgDimensions.height,
-          top: fabricInfo.variant[colorIndex].leftImgDimensions.top,
-          left: fabricInfo.variant[colorIndex].leftImgDimensions.left,
+          width: fabricInfo.variant[colorIndex].leftImgDimensions.width +80,
+          height: fabricInfo.variant[colorIndex].leftImgDimensions.height +80,
+          top: fabricInfo.variant[colorIndex].leftImgDimensions.top -40,
+          left: fabricInfo.variant[colorIndex].leftImgDimensions.left -40,
           selectable: false,
           strokeDashArray: [5, 2],
           stroke: "grey",
@@ -7255,10 +7255,10 @@ function Hero() {
     } else if (sides == "four") {
       if (fabricInfo && Object.keys(fabricInfo).length > 0) {
         Rect = new fabric.Rect({
-          width: fabricInfo.variant[colorIndex].rightImgDimensions.width,
-          height: fabricInfo.variant[colorIndex].rightImgDimensions.height,
-          top: fabricInfo.variant[colorIndex].rightImgDimensions.top,
-          left: fabricInfo.variant[colorIndex].rightImgDimensions.left,
+          width: fabricInfo.variant[colorIndex].rightImgDimensions.width +80,
+          height: fabricInfo.variant[colorIndex].rightImgDimensions.height +80,
+          top: fabricInfo.variant[colorIndex].rightImgDimensions.top -40,
+          left: fabricInfo.variant[colorIndex].rightImgDimensions.left -40,
           selectable: false,
           strokeDashArray: [5, 2],
           stroke: "grey",
