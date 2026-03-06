@@ -7129,8 +7129,8 @@ function Hero() {
         Rect = new fabric.Rect({
           width: fabricInfo.variant[colorIndex].frontImgDimensions.width+80,
           height: fabricInfo.variant[colorIndex].frontImgDimensions.height+80,
-          top: fabricInfo.variant[colorIndex].frontImgDimensions.top+40,
-          left: fabricInfo.variant[colorIndex].frontImgDimensions.left+40,
+          top: fabricInfo.variant[colorIndex].frontImgDimensions.top -40,
+          left: fabricInfo.variant[colorIndex].frontImgDimensions.left-40,
           selectable: false,
           strokeDashArray: [5, 2],
           stroke: "grey",
