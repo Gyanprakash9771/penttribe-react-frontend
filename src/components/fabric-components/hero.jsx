@@ -543,10 +543,10 @@ function Hero() {
 
       //defining the Rectangle constraint for users designs
       var Rect = new fabric.Rect({
-        width: fabricInfo.variant[colorIndex].frontImgDimensions.width + 50,
-        height: fabricInfo.variant[colorIndex].frontImgDimensions.height + 50,
-        top: fabricInfo.variant[colorIndex].frontImgDimensions.top-25,
-        left: fabricInfo.variant[colorIndex].frontImgDimensions.left-25,
+        width: fabricInfo.variant[colorIndex].frontImgDimensions.width,
+        height: fabricInfo.variant[colorIndex].frontImgDimensions.height,
+        top: fabricInfo.variant[colorIndex].frontImgDimensions.top,
+        left: fabricInfo.variant[colorIndex].frontImgDimensions.left,
         selectable: false,
         hasControls: false,
         hasRotatingPoint: false,
@@ -2327,9 +2327,9 @@ function Hero() {
 
             let aspectRatioWidth = 0;
 
-            aspectRatioHeight = imageUploaded.height / imageUploaded.width;
+            aspectRatioHeight = imageUploaded.height / imageUploaded.width *2;
 
-            aspectRatioWidth = imageUploaded.width/ imageUploaded.height;
+            aspectRatioWidth = imageUploaded.width/ imageUploaded.height *2;
 
             let adjHeight = 0;
             let adjWidth = 0;
