@@ -3899,19 +3899,16 @@ function Hero() {
   ];
 
   const addDesignToCanvas = (url) => {
-    fabric.Image.fromURL(url, (img) => {
+     
+  
+console.log("Clicked image:", url);
 
-      img.set({
-        left: 150,
-        top: 150,
-        scaleX: 0.3,
-        scaleY: 0.3
-      });
+  fabric.Image.fromURL(url, (img) => {
+    console.log("Image loaded to canvas");
 
-      editor?.canvas.add(img);
-      editor?.canvas.setActiveObject(img);
-      editor?.canvas.renderAll();
-    });
+    editor?.canvas.add(img);
+    editor?.canvas.renderAll();
+  });
   };
 
   //executes when add text is clicked
