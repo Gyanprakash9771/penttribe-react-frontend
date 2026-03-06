@@ -8037,7 +8037,9 @@ console.log("Clicked image:", url);
             src={img}
             width="80"
             style={{ margin: "10px", cursor: "pointer" }}
-            onClick={() => addDesignToCanvas(img)}
+            onClick={() => {
+              console.log("Image clicked");
+              addDesignToCanvas(img)}}
           />
         ))}
       </div>
