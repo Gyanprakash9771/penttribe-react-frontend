@@ -3892,6 +3892,27 @@ function Hero() {
       }
     }
   };
+  const designs = [
+    "/designs/design1.png",
+    "/designs/design2.png",
+    "/designs/design3.png"
+  ];
+
+  const addDesignToCanvas = (url) => {
+    fabric.Image.fromURL(url, (img) => {
+
+      img.set({
+        left: 150,
+        top: 150,
+        scaleX: 0.3,
+        scaleY: 0.3
+      });
+
+      editor?.canvas.add(img);
+      editor?.canvas.setActiveObject(img);
+      editor?.canvas.renderAll();
+    });
+  };
 
   //executes when add text is clicked
   const handleAddText = (event) => {
@@ -8012,6 +8033,22 @@ function Hero() {
                     </Button>
                   </div>
                 </div>
+                 <div>
+        {designs.map((img, index) => (
+          <img
+            key={index}
+            src={img}
+            width="80"
+            style={{ margin: "10px", cursor: "pointer" }}
+            onClick={() => addDesignToCanvas(img)}
+          />
+        ))}
+      </div>
+
+      <FabricJSCanvas
+        className="canvas"
+        onReady={onReady}
+      />
                 <br />
                 <br />
                 <div className="row">
