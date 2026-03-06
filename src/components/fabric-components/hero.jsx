@@ -556,7 +556,7 @@ function Hero() {
         fill: "transparent",
         
       });
-      console.log("Dimensions:", fabricInfo.variant[colorIndex].frontImgDimensions);
+      
       if (!aop) {
         //if a design is moved out of the constraint it gets clipped
         var clipPath = new fabric.Rect({
@@ -598,10 +598,10 @@ function Hero() {
             selectable: false,
             hasControls: false,
             hasRotatingPoint: false,
-            width: fabricInfo.variant[colorIndex].frontImgDimensions.width,
-            height: fabricInfo.variant[colorIndex].frontImgDimensions.height,
-            top: fabricInfo.variant[colorIndex].frontImgDimensions.top,
-            left: fabricInfo.variant[colorIndex].frontImgDimensions.left,
+            width: fabricInfo.variant[colorIndex].frontImgDimensions.width +80,
+            height: fabricInfo.variant[colorIndex].frontImgDimensions.height +80,
+            top: fabricInfo.variant[colorIndex].frontImgDimensions.top -40,
+            left: fabricInfo.variant[colorIndex].frontImgDimensions.left -40,
           });
           if (editor?.canvas) {
             // let ctx = editor.canvas.getContext();
