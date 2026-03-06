@@ -3899,16 +3899,20 @@ function Hero() {
   ];
 
   const addDesignToCanvas = (url) => {
-     
-  
-console.log("Clicked image:", url);
+    
+    fabric.Image.fromURL(url, (img) => {
 
-  fabric.Image.fromURL(url, (img) => {
-    console.log("Image loaded to canvas");
+      img.set({
+        left: 150,
+        top: 150,
+        scaleX: 0.3,
+        scaleY: 0.3
+      });
 
-    editor?.canvas.add(img);
-    editor?.canvas.renderAll();
-  });
+      editor?.canvas.add(img);
+      editor?.canvas.setActiveObject(img);
+      editor?.canvas.renderAll();
+    });
   };
 
   //executes when add text is clicked
@@ -8037,9 +8041,7 @@ console.log("Clicked image:", url);
             src={img}
             width="80"
             style={{ margin: "10px", cursor: "pointer" }}
-            onClick={() => {
-              console.log("Image clicked");
-              addDesignToCanvas(img)}}
+            onClick={() => addDesignToCanvas(img)}
           />
         ))}
       </div>
