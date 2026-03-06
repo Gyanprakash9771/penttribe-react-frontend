@@ -3899,12 +3899,12 @@ function Hero() {
   ];
 
   const addDesignToCanvas = (url) => {
-    
+     console.log("Image is clicked")
     fabric.Image.fromURL(url, (img) => {
 
       img.set({
-        left: 150,
-        top: 150,
+        left: 50,
+        top: 50,
         scaleX: 0.3,
         scaleY: 0.3
       });
