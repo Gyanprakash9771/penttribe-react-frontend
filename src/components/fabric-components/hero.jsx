@@ -554,7 +554,9 @@ function Hero() {
         strokeDashArray: [5, 2],
         stroke: "grey",
         fill: "transparent",
+        
       });
+      console.log("Dimensions:", fabricInfo.variant[colorIndex].frontImgDimensions);
       if (!aop) {
         //if a design is moved out of the constraint it gets clipped
         var clipPath = new fabric.Rect({
