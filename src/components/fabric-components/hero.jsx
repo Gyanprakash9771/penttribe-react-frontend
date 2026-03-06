@@ -3893,9 +3893,9 @@ function Hero() {
     }
   };
   const designs = [
-    "/designs/design1.png",
-    "/designs/design2.png",
-    "/designs/design3.png"
+    "/designs/images(6).jpg",
+    "/designs/images(6).jpg",
+    "/designs/images(6).jpg"
   ];
 
   const addDesignToCanvas = (url) => {
