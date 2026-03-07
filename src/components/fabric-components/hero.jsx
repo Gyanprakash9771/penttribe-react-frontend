@@ -110,6 +110,7 @@ function Hero() {
 
   const undoStack = useRef([[], [], [], []]);
   const redoStack = useRef([[], [], [], []]);
+  const isHistoryProcessing = useRef(false);
 
   const getCanvasIndex = () => {
   if (sides === "one") return 0;
@@ -120,6 +121,8 @@ function Hero() {
   };
 
   const saveCanvasState = () => {
+
+    if (isHistoryProcessing.current) return;
 
   const index = getCanvasIndex();
 
@@ -134,29 +137,29 @@ function Hero() {
   console.log("History saved for canvas", index);
   };
 
-  const handleUndo = () => {
+ const handleUndo = () => {
 
-    const index = getCanvasIndex();
+  const index = getCanvasIndex();
 
-    if (undoStack.current[index].length <= 1) {
-      console.log("No undo history");
-      return;
-    }
+  if (undoStack.current[index].length <= 1) return;
 
-    const canvas = canvasArr[index];
+  const canvas = canvasArr[index];
 
-    const current = undoStack.current[index].pop();
+  isHistoryProcessing.current = true;
 
-    redoStack.current[index].push(current);
+  const currentState = undoStack.current[index].pop();
 
-    const previous =
-      undoStack.current[index][undoStack.current[index].length - 1];
+  redoStack.current[index].push(currentState);
 
-    canvas.loadFromJSON(previous, () => {
-      canvas.renderAll();
-    });
+  const previousState =
+    undoStack.current[index][undoStack.current[index].length - 1];
 
-  };
+  canvas.loadFromJSON(previousState, () => {
+    canvas.renderAll();
+    isHistoryProcessing.current = false;
+  });
+
+};
 
   const handleRedo = () => {
 
@@ -166,12 +169,15 @@ function Hero() {
 
   const canvas = canvasArr[index];
 
+  isHistoryProcessing.current = true;
+
   const state = redoStack.current[index].pop();
 
   undoStack.current[index].push(state);
 
   canvas.loadFromJSON(state, () => {
     canvas.renderAll();
+    isHistoryProcessing.current = false;
   });
 
 };
