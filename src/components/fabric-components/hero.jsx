@@ -97,7 +97,6 @@ function Hero() {
   const [showAnother, setShowAnother] = useState(false);
   const [canvasArr, setCanvasArr] = useState();
   const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
-  const [activePanel, setActivePanel] = useState(null);
 
   function handleClick() {
     forceUpdate();
@@ -8003,48 +8002,7 @@ function Hero() {
                       <FontAwesomeIcon onClick={handleRightAlignDesign} icon={faAlignRight} />
                     </div>
                   </div>
-                </div> 
-
-                <div className="graphics-icons">
-
-  <div onClick={() => setActivePanel("shapes")}>
-    🔺
-  </div>
-  <div>
-    🙂
-  </div>
-  <div>
-    💎
-  </div>
-  <div>
-    ▦
-  </div>
-  <div>
-    ✎
-  </div>
-</div>
-{activePanel === "shapes" && (
-
-  <div className="shapes-panel">
-
-    <span className="close-btn" onClick={() => setActivePanel(null)}>✕</span>
-
-    <div className="shape-grid">
-
-      <div onClick={()=>addShape("square")}>■</div>
-      <div onClick={()=>addShape("star")}>★</div>
-      <div onClick={()=>addShape("hexagon")}>⬢</div>
-
-      <div onClick={()=>addShape("triangle")}>▲</div>
-      <div onClick={()=>addShape("circle")}>●</div>
-      <div onClick={()=>addShape("heart")}>❤</div>
-
-    </div>
-
-  </div>
-
-)}
-
+                </div>                
                 <div className="d-flex mt-3 mb-3 ">
                   <div className="me-5 fw-bold choosingStyle">Choose size</div>
                   <div className="mx-5 px-5 choosingSize">
