@@ -7924,8 +7924,13 @@ function Hero() {
                   </p>
                 </div>
 
-                <button onClick={handleUndo}>Undo</button>
-                <button onClick={handleRedo}>Redo</button>
+                <button onClick={handleUndo}>
+                  <BiChevronLeft /> Undo
+                </button>
+
+                <button onClick={handleRedo}>
+                  Redo <BiChevronRight />
+                </button>
 
                 <p className="mt-3 fw-bold choosingStyle">Choose color</p>
                 <div className="row">
