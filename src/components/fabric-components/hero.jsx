@@ -8082,7 +8082,7 @@ function Hero() {
       className={"btn " + styles.startSellingBtn + " px-4 py-2"}
       onClick={() => setShowShapes(!showShapes)}
     >
-      Shapes
+      Shapes and graphics
     </button>
 
   </div>
