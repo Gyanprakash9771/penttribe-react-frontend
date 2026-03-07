@@ -107,6 +107,75 @@ function Hero() {
   const [showSize, setSizeShow] = useState(false);
   const [otherImg, setOtherImg] = useState()
   const [count, setCount] = useState(1)
+
+  const undoStack = useRef([[], [], [], []]);
+  const redoStack = useRef([[], [], [], []]);
+
+  const getCanvasIndex = () => {
+  if (sides === "one") return 0;
+  if (sides === "two") return 1;
+  if (sides === "three") return 2;
+  if (sides === "four") return 3;
+  return 0;
+  };
+
+  const saveCanvasState = () => {
+
+  const index = getCanvasIndex();
+
+  if (!canvasArr || !canvasArr[index]) return;
+
+  const json = canvasArr[index].toJSON();
+
+  undoStack.current[index].push(json);
+
+  redoStack.current[index] = [];
+
+  console.log("History saved for canvas", index);
+  };
+
+  const handleUndo = () => {
+
+    const index = getCanvasIndex();
+
+    if (undoStack.current[index].length <= 1) {
+      console.log("No undo history");
+      return;
+    }
+
+    const canvas = canvasArr[index];
+
+    const current = undoStack.current[index].pop();
+
+    redoStack.current[index].push(current);
+
+    const previous =
+      undoStack.current[index][undoStack.current[index].length - 1];
+
+    canvas.loadFromJSON(previous, () => {
+      canvas.renderAll();
+    });
+
+  };
+
+  const handleRedo = () => {
+
+  const index = getCanvasIndex();
+
+  if (redoStack.current[index].length === 0) return;
+
+  const canvas = canvasArr[index];
+
+  const state = redoStack.current[index].pop();
+
+  undoStack.current[index].push(state);
+
+  canvas.loadFromJSON(state, () => {
+    canvas.renderAll();
+  });
+
+};
+
   const handleNext = () => {
 
     setOtherImg(otherImages[count])
@@ -3935,6 +4004,8 @@ function Hero() {
       canvasArr[no].setActiveObject(text);
       canvasArr[no].getActiveObject().enterEditing();
       canvasArr[no].renderAll();
+
+      saveCanvasState();
   
   
   
@@ -4558,6 +4629,8 @@ function Hero() {
       no = 3;
     }
     canvasArr[no].remove(canvasArr[no].getActiveObject());
+    canvasArr[no].renderAll();
+    saveCanvasState();
     setWidthInches(0);
     setHeightInches(0);
     setPriceSet(product.price);
@@ -7844,6 +7917,10 @@ function Hero() {
                     {product.description}
                   </p>
                 </div>
+
+                <button onClick={handleUndo}>Undo</button>
+                <button onClick={handleRedo}>Redo</button>
+
                 <p className="mt-3 fw-bold choosingStyle">Choose color</p>
                 <div className="row">
                   <div className="d-flex mb-3">
@@ -8013,11 +8090,6 @@ function Hero() {
                     </Button>
                   </div>
                 </div>
-
-      <FabricJSCanvas
-        className="canvas"
-        onReady={onReady}
-      />
                 <br />
                 <br />
                 <div className="row">
