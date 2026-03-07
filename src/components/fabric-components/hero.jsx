@@ -97,9 +97,6 @@ function Hero() {
   const [showAnother, setShowAnother] = useState(false);
   const [canvasArr, setCanvasArr] = useState();
   const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
-  const undoStack = useRef([]);//g 3  
-  const redoStack = useRef([]);
-  const isHistoryProcessing = useRef(false);
 
   function handleClick() {
     forceUpdate();
@@ -126,67 +123,6 @@ function Hero() {
 
     }
   },[otherImages])
-
-  const handleCanvasReady = (canvas) => {
-  onReady(canvas);
-
-  // save initial state
-  const json = canvas.toJSON();
-  undoStack.current.push(json);
-
-  console.log("Initial state saved");
-};
-  const saveCanvasState = () => {
-    if(!editor?.canvas) return;
-    if (isHistoryProcessing.current) return;
-    const canvasJSON = editor.canvas.toJSON();
-    undoStack.current.push(canvasJSON);
-    redoStack.current=[];
-    console.log("History saved:", undoStack.current.length);
-  };
-
-  useEffect(()=>{
-    if(!editor?.canvas) return;
-    const canvas=editor.canvas;
-    canvas.on("object:added",saveCanvasState)
-    canvas.on("object:modified",saveCanvasState)
-    canvas.on("object:removed",saveCanvasState)
-    saveCanvasState();
-  },[editor]);
-
-  const handleUndo = () => {
-
-  if (!editor?.canvas) return;
-
-  if (undoStack.current.length <= 1) {
-    console.log("Not enough history");
-    return;
-  }
-  const canvas = editor.canvas;
-  isHistoryProcessing.current = true;
-  const currentState = undoStack.current.pop();
-  redoStack.current.push(currentState);
-  const previousState =
-    undoStack.current[undoStack.current.length - 1];
-  canvas.loadFromJSON(previousState, () => {
-    canvas.renderAll();
-    isHistoryProcessing.current = false;
-  });
-};
-
-const handleRedo = () => {
-  if (!editor?.canvas) return;
-  if (redoStack.current.length === 0) return;
-  const canvas = editor.canvas;
-  isHistoryProcessing.current = true;
-  const state = redoStack.current.pop();
-  undoStack.current.push(state);
-  canvas.loadFromJSON(state, () => {
-    canvas.renderAll();
-    isHistoryProcessing.current = false;
-  });
-};
-
   const handleChangeImage = (data, letter) => {
     console.log(data,"data")
     setOtherImg(data)
@@ -3956,6 +3892,7 @@ const handleRedo = () => {
       }
     }
   };
+  
 
   //executes when add text is clicked
   const handleAddText = (event) => {
@@ -7662,8 +7599,8 @@ const handleRedo = () => {
                               <></>
                             )
                           }
-                          {/* <FabricJSCanvas //g remove comment
-                            onReady={handleCanvasReady}
+                          {/* <FabricJSCanvas
+                            onReady={onReady}
                             className={canvasStyles.canvasSet}
                           /> */}
                         </div>
@@ -7907,35 +7844,6 @@ const handleRedo = () => {
                     {product.description}
                   </p>
                 </div>
-                <div className="d-flex mb-3">
-  <div className="pe-3">
-    <button
-      onClick={handleUndo}
-      className={
-        "btn" +
-        " " +
-        styles.startSellingBtn +
-        " px-4 py-2 avenier"
-      }
-    >
-      <BiChevronLeft /> Undo
-    </button>
-  </div>
-
-  <div className="ps-3">
-    <button
-      onClick={handleRedo}
-      className={
-        "btn" +
-        " " +
-        styles.orderNowBtn +
-        " px-4 py-2"
-      }
-    >
-      Redo <BiChevronRight />
-    </button>
-  </div>
-</div>
                 <p className="mt-3 fw-bold choosingStyle">Choose color</p>
                 <div className="row">
                   <div className="d-flex mb-3">
@@ -8105,6 +8013,11 @@ const handleRedo = () => {
                     </Button>
                   </div>
                 </div>
+
+      <FabricJSCanvas
+        className="canvas"
+        onReady={onReady}
+      />
                 <br />
                 <br />
                 <div className="row">
