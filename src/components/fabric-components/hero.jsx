@@ -3892,28 +3892,6 @@ function Hero() {
       }
     }
   };
-  const designs = [
-    "/designs/images6.jpg",
-    "/designs/images7.jpg",
-    "/designs/images8.jpg"
-  ];
-
-  const addDesignToCanvas = (url) => {
-     console.log("Image is clicked")
-    fabric.Image.fromURL(url, (img) => {
-
-      img.set({
-        left: 50,
-        top: 50,
-        scaleX: 0.3,
-        scaleY: 0.3
-      });
-
-      editor?.canvas.add(img);
-      editor?.canvas.setActiveObject(img);
-      editor?.canvas.renderAll();
-    });
-  };
 
   //executes when add text is clicked
   const handleAddText = (event) => {
@@ -8034,22 +8012,6 @@ function Hero() {
                     </Button>
                   </div>
                 </div>
-                 <div>
-        {designs.map((img, index) => (
-          <img
-            key={index}
-            src={img}
-            width="80"
-            style={{ margin: "10px", cursor: "pointer" }}
-            onClick={() => addDesignToCanvas(img)}
-          />
-        ))}
-      </div>
-
-      <FabricJSCanvas
-        className="canvas"
-        onReady={onReady}
-      />
                 <br />
                 <br />
                 <div className="row">
