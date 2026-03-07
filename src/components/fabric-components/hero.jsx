@@ -98,6 +98,7 @@ function Hero() {
   const [canvasArr, setCanvasArr] = useState();
   const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
   const [showShapes, setShowShapes] = useState(false);
+  const [showEmoji, setShowEmoji] = useState(false);
 
   function handleClick() {
     forceUpdate();
@@ -4738,6 +4739,49 @@ function Hero() {
   canvasArr[no].renderAll();
 
 };
+const handleAddEmoji = (emoji) => {
+
+  let no = 0;
+
+  if (sides == "one") {
+    no = 0;
+  }
+  else if (sides == "two") {
+    no = 1;
+  }
+  else if (sides == "three") {
+    no = 2;
+  }
+  else if (sides == "four") {
+    no = 3;
+  }
+
+  if (!canvasArr || !canvasArr[no]) return;
+
+  const obj = canvasArr[no].getObjects();
+
+  let topRect = 0;
+  let leftRect = 0;
+
+  obj.forEach((o) => {
+    if (o.type === "rect") {
+      topRect = o.top;
+      leftRect = o.left;
+    }
+  });
+
+  const emojiText = new fabric.IText(emoji, {
+    left: leftRect + 40,
+    top: topRect + 40,
+    fontSize: 40
+  });
+
+  canvasArr[no].add(emojiText);
+  canvasArr[no].bringToFront(emojiText);
+  canvasArr[no].setActiveObject(emojiText);
+  canvasArr[no].renderAll();
+
+};
 
   //changes the font family of the text
   const fontChange = (event) => {
@@ -8099,15 +8143,56 @@ function Hero() {
       <div className="mx-2" style={{cursor:"pointer"}}>
         <span onClick={() => handleAddShape("circle")}>●</span>
       </div>
-
       <div className="mx-2" style={{cursor:"pointer"}}>
         <span onClick={() => handleAddShape("triangle")}>▲</span>
+      </div>
+    </div>
+  </div>
+)} 
+<p className="mt-3 fw-bold choosingStyle">Emoji</p>
+
+<div className="row">
+  <div className="d-flex mb-3">
+
+    <button
+      className={"btn " + styles.startSellingBtn + " px-4 py-2"}
+      onClick={() => setShowEmoji(!showEmoji)}
+    >
+      Emoji
+    </button>
+
+  </div>
+</div>
+
+{showEmoji && (
+
+  <div className="row">
+    <div className="d-flex mb-3">
+
+      <div className="mx-2" style={{cursor:"pointer"}}>
+        <span onClick={() => handleAddEmoji("😀")} style={{fontSize:"24px"}}>😀</span>
+      </div>
+
+      <div className="mx-2" style={{cursor:"pointer"}}>
+        <span onClick={() => handleAddEmoji("😂")} style={{fontSize:"24px"}}>😂</span>
+      </div>
+
+      <div className="mx-2" style={{cursor:"pointer"}}>
+        <span onClick={() => handleAddEmoji("❤️")} style={{fontSize:"24px"}}>❤️</span>
+      </div>
+
+      <div className="mx-2" style={{cursor:"pointer"}}>
+        <span onClick={() => handleAddEmoji("👍")} style={{fontSize:"24px"}}>👍</span>
+      </div>
+
+      <div className="mx-2" style={{cursor:"pointer"}}>
+        <span onClick={() => handleAddEmoji("😎")} style={{fontSize:"24px"}}>😎</span>
       </div>
 
     </div>
   </div>
 
-)}    
+)}
                 <div className="d-flex mt-3 mb-3 ">
                   <div className="me-5 fw-bold choosingStyle">Choose size</div>
                   <div className="mx-5 px-5 choosingSize">
