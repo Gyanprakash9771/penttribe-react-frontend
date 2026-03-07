@@ -141,7 +141,7 @@ function Hero() {
 
   const index = getCanvasIndex();
 
-  if (undoStack.current[index].length <= 1) return;
+  if (undoStack.current[index].length == 0) return;
 
   const canvas = canvasArr[index];
 
