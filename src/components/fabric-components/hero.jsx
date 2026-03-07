@@ -127,12 +127,22 @@ function Hero() {
     }
   },[otherImages])
 
+  const handleCanvasReady = (canvas) => {
+  onReady(canvas);
+
+  // save initial state
+  const json = canvas.toJSON();
+  undoStack.current.push(json);
+
+  console.log("Initial state saved");
+};
   const saveCanvasState = () => {
     if(!editor?.canvas) return;
     if (isHistoryProcessing.current) return;
     const canvasJSON = editor.canvas.toJSON();
     undoStack.current.push(canvasJSON);
     redoStack.current=[];
+    console.log("History saved:", undoStack.current.length);
   };
 
   useEffect(()=>{
@@ -146,48 +156,35 @@ function Hero() {
 
   const handleUndo = () => {
 
-   console.log("Undo stack:", undoStack.current);
+  if (!editor?.canvas) return;
 
   if (undoStack.current.length <= 1) {
     console.log("Not enough history");
     return;
   }
-
   const canvas = editor.canvas;
-
   isHistoryProcessing.current = true;
-
   const currentState = undoStack.current.pop();
-
   redoStack.current.push(currentState);
-
   const previousState =
     undoStack.current[undoStack.current.length - 1];
-
   canvas.loadFromJSON(previousState, () => {
     canvas.renderAll();
+    isHistoryProcessing.current = false;
   });
-
 };
 
 const handleRedo = () => {
-   
-  console.log("redo click")
-
+  if (!editor?.canvas) return;
   if (redoStack.current.length === 0) return;
-
   const canvas = editor.canvas;
-
   isHistoryProcessing.current = true;
-
   const state = redoStack.current.pop();
-
   undoStack.current.push(state);
-
   canvas.loadFromJSON(state, () => {
     canvas.renderAll();
+    isHistoryProcessing.current = false;
   });
-
 };
 
   const handleChangeImage = (data, letter) => {
@@ -7665,10 +7662,10 @@ const handleRedo = () => {
                               <></>
                             )
                           }
-                          {/* <FabricJSCanvas
+                          <FabricJSCanvas
                             onReady={onReady}
                             className={canvasStyles.canvasSet}
-                          /> */}
+                          />
                         </div>
                       </div>
                       {/* <div className="product__sale ">
