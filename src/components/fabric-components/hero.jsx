@@ -7662,10 +7662,10 @@ const handleRedo = () => {
                               <></>
                             )
                           }
-                          <FabricJSCanvas //g remove comment
+                          {/* <FabricJSCanvas //g remove comment
                             onReady={handleCanvasReady}
                             className={canvasStyles.canvasSet}
-                          />
+                          /> */}
                         </div>
                       </div>
                       {/* <div className="product__sale ">
