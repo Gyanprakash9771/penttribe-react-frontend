@@ -97,8 +97,9 @@ function Hero() {
   const [showAnother, setShowAnother] = useState(false);
   const [canvasArr, setCanvasArr] = useState();
   const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
-  const undoStack = useRef([]);//g 2  
+  const undoStack = useRef([]);//g 3  
   const redoStack = useRef([]);
+  const isHistoryProcessing = useRef(false);
 
   function handleClick() {
     forceUpdate();
@@ -128,6 +129,7 @@ function Hero() {
 
   const saveCanvasState = () => {
     if(!editor?.canvas) return;
+    if (isHistoryProcessing.current) return;
     const canvasJSON = editor.canvas.toJSON();
     undoStack.current.push(canvasJSON);
     redoStack.current=[];
@@ -148,6 +150,8 @@ function Hero() {
 
   const canvas = editor.canvas;
 
+  isHistoryProcessing.current = true;
+
   const currentState = undoStack.current.pop();
 
   redoStack.current.push(currentState);
@@ -166,6 +170,8 @@ const handleRedo = () => {
   if (redoStack.current.length === 0) return;
 
   const canvas = editor.canvas;
+
+  isHistoryProcessing.current = true;
 
   const state = redoStack.current.pop();
 
