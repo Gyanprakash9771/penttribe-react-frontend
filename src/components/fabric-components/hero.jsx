@@ -7924,13 +7924,27 @@ function Hero() {
                   </p>
                 </div>
 
-                <button onClick={handleUndo}>
-                  <BiChevronLeft /> Undo
-                </button>
+                <div className="d-flex mb-3">
 
-                <button onClick={handleRedo}>
-                  Redo <BiChevronRight />
-                </button>
+  <div className="pe-3">
+    <button
+      onClick={handleUndo}
+      className={"btn " + styles.startSellingBtn + " px-4 py-2"}
+    >
+      Undo
+    </button>
+  </div>
+
+  <div className="ps-3">
+    <button
+      onClick={handleRedo}
+      className={"btn " + styles.orderNowBtn + " px-4 py-2"}
+    >
+      Redo
+    </button>
+  </div>
+
+</div>
 
                 <p className="mt-3 fw-bold choosingStyle">Choose color</p>
                 <div className="row">
