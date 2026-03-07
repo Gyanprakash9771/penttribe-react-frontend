@@ -97,6 +97,7 @@ function Hero() {
   const [showAnother, setShowAnother] = useState(false);
   const [canvasArr, setCanvasArr] = useState();
   const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
+  const [showShapes, setShowShapes] = useState(false);
 
   function handleClick() {
     forceUpdate();
@@ -4669,6 +4670,75 @@ function Hero() {
     // });
   };
 
+  const handleAddShape = (type) => {
+
+  let no = 0;
+
+  if (sides == "one") {
+    no = 0;
+  }
+  else if (sides == "two") {
+    no = 1;
+  }
+  else if (sides == "three") {
+    no = 2;
+  }
+  else if (sides == "four") {
+    no = 3;
+  }
+
+  if (!canvasArr || !canvasArr[no]) return;
+
+  const obj = canvasArr[no].getObjects();
+
+  let topRect = 0;
+  let leftRect = 0;
+
+  obj.forEach((o) => {
+    if (o.type === "rect") {
+      topRect = o.top;
+      leftRect = o.left;
+    }
+  });
+
+  let shape;
+
+  if (type === "square") {
+    shape = new fabric.Rect({
+      width: 80,
+      height: 80,
+      fill: "black",
+      left: leftRect + 20,
+      top: topRect + 20
+    });
+  }
+
+  if (type === "circle") {
+    shape = new fabric.Circle({
+      radius: 40,
+      fill: "black",
+      left: leftRect + 20,
+      top: topRect + 20
+    });
+  }
+
+  if (type === "triangle") {
+    shape = new fabric.Triangle({
+      width: 80,
+      height: 80,
+      fill: "black",
+      left: leftRect + 20,
+      top: topRect + 20
+    });
+  }
+
+  canvasArr[no].add(shape);
+  canvasArr[no].bringToFront(shape);
+  canvasArr[no].setActiveObject(shape);
+  canvasArr[no].renderAll();
+
+};
+
   //changes the font family of the text
   const fontChange = (event) => {
     var exists = false;
@@ -8002,7 +8072,42 @@ function Hero() {
                       <FontAwesomeIcon onClick={handleRightAlignDesign} icon={faAlignRight} />
                     </div>
                   </div>
-                </div>                
+                </div>
+                <p className="mt-3 fw-bold choosingStyle">Shapes</p>
+
+<div className="row">
+  <div className="d-flex mb-3">
+
+    <button
+      className={"btn " + styles.startSellingBtn + " px-4 py-2"}
+      onClick={() => setShowShapes(!showShapes)}
+    >
+      Shapes
+    </button>
+
+  </div>
+</div>   
+         {showShapes && (
+
+  <div className="row">
+    <div className="d-flex mb-3">
+
+      <div className="mx-2" style={{cursor:"pointer"}}>
+        <span onClick={() => handleAddShape("square")}>■</span>
+      </div>
+
+      <div className="mx-2" style={{cursor:"pointer"}}>
+        <span onClick={() => handleAddShape("circle")}>●</span>
+      </div>
+
+      <div className="mx-2" style={{cursor:"pointer"}}>
+        <span onClick={() => handleAddShape("triangle")}>▲</span>
+      </div>
+
+    </div>
+  </div>
+
+)}    
                 <div className="d-flex mt-3 mb-3 ">
                   <div className="me-5 fw-bold choosingStyle">Choose size</div>
                   <div className="mx-5 px-5 choosingSize">
