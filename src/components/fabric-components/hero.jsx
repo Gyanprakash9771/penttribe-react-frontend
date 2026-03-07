@@ -7662,8 +7662,8 @@ const handleRedo = () => {
                               <></>
                             )
                           }
-                          <FabricJSCanvas
-                            onReady={onReady}
+                          <FabricJSCanvas //g remove comment
+                            onReady={handleCanvasReady}
                             className={canvasStyles.canvasSet}
                           />
                         </div>
