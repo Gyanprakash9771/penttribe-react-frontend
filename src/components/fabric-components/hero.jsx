@@ -8073,7 +8073,7 @@ function Hero() {
                     </div>
                   </div>
                 </div>
-                <p className="mt-3 fw-bold choosingStyle">Shapes</p>
+                <p className="mt-3 fw-bold choosingStyle">Shapes and graphics</p>
 
 <div className="row">
   <div className="d-flex mb-3">
@@ -8082,7 +8082,7 @@ function Hero() {
       className={"btn " + styles.startSellingBtn + " px-4 py-2"}
       onClick={() => setShowShapes(!showShapes)}
     >
-      Shapes and graphics
+      Shapes
     </button>
 
   </div>
