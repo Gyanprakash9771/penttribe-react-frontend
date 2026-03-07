@@ -146,6 +146,8 @@ function Hero() {
 
   const handleUndo = () => {
 
+    console.log("handleUndo is click")
+
   if (undoStack.current.length <= 1) return;
 
   const canvas = editor.canvas;
@@ -166,6 +168,8 @@ function Hero() {
 };
 
 const handleRedo = () => {
+   
+  console.log("redo click")
 
   if (redoStack.current.length === 0) return;
 
