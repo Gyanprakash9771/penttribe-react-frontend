@@ -8117,21 +8117,33 @@ const handleAddEmoji = (emoji) => {
                     </div>
                   </div>
                 </div>
-                <p className="mt-3 fw-bold choosingStyle">Shapes and graphics</p>
+<p className="mt-3 fw-bold choosingStyle">Shapes and graphics</p>
 
 <div className="row">
-  <div className="d-flex mb-3">
+  <div className="d-flex mb-3" style={{ gap: "10px" }}>
 
     <button
       className={"btn " + styles.startSellingBtn + " px-4 py-2"}
-      onClick={() => setShowShapes(!showShapes)}
+      onClick={() => {
+        setShowShapes(!showShapes);
+        setShowEmoji(false);
+      }}
     >
       Shapes
+    </button>
+    <button
+      className={"btn " + styles.startSellingBtn + " px-4 py-2"}
+       onClick={() => {
+    setShowEmoji(!showEmoji);
+    setShowShapes(false);
+  }}
+    >
+      Emoji
     </button>
 
   </div>
 </div>   
-         {showShapes && (
+{showShapes && (
 
   <div className="row">
     <div className="d-flex mb-3">
@@ -8149,21 +8161,6 @@ const handleAddEmoji = (emoji) => {
     </div>
   </div>
 )} 
-<p className="mt-3 fw-bold choosingStyle">Emoji</p>
-
-<div className="row">
-  <div className="d-flex mb-3">
-
-    <button
-      className={"btn " + styles.startSellingBtn + " px-4 py-2"}
-      onClick={() => setShowEmoji(!showEmoji)}
-    >
-      Emoji
-    </button>
-
-  </div>
-</div>
-
 {showEmoji && (
 
   <div className="row">
