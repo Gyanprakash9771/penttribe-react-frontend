@@ -97,6 +97,8 @@ function Hero() {
   const [showAnother, setShowAnother] = useState(false);
   const [canvasArr, setCanvasArr] = useState();
   const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
+  const undoStack = useRef([]);//g 2  
+  const redoStack = useRef([]);
 
   function handleClick() {
     forceUpdate();
@@ -123,6 +125,58 @@ function Hero() {
 
     }
   },[otherImages])
+
+  const saveCanvasState = () => {
+    if(!editor?.canvas) return;
+    const canvasJSON = editor.canvas.toJSON();
+    undoStack.current.push(canvasJSON);
+    redoStack.current=[];
+  };
+
+  useEffect(()=>{
+    if(!editor?.canvas) return;
+    const canvas=editor.canvas;
+    canvas.on("object:added",saveCanvasState)
+    canvas.on("object:modified",saveCanvasState)
+    canvas.on("object:removed",saveCanvasState)
+    saveCanvasState();
+  },[editor]);
+
+  const handleUndo = () => {
+
+  if (undoStack.current.length <= 1) return;
+
+  const canvas = editor.canvas;
+
+  const currentState = undoStack.current.pop();
+
+  redoStack.current.push(currentState);
+
+  const previousState =
+    undoStack.current[undoStack.current.length - 1];
+
+  canvas.loadFromJSON(previousState, () => {
+    canvas.renderAll();
+  });
+
+};
+
+const handleRedo = () => {
+
+  if (redoStack.current.length === 0) return;
+
+  const canvas = editor.canvas;
+
+  const state = redoStack.current.pop();
+
+  undoStack.current.push(state);
+
+  canvas.loadFromJSON(state, () => {
+    canvas.renderAll();
+  });
+
+};
+
   const handleChangeImage = (data, letter) => {
     console.log(data,"data")
     setOtherImg(data)
@@ -7843,6 +7897,35 @@ function Hero() {
                     {product.description}
                   </p>
                 </div>
+                <div className="d-flex mb-3">
+  <div className="pe-3">
+    <button
+      onClick={handleUndo}
+      className={
+        "btn" +
+        " " +
+        styles.startSellingBtn +
+        " px-4 py-2 avenier"
+      }
+    >
+      <BiChevronLeft /> Undo
+    </button>
+  </div>
+
+  <div className="ps-3">
+    <button
+      onClick={handleRedo}
+      className={
+        "btn" +
+        " " +
+        styles.orderNowBtn +
+        " px-4 py-2"
+      }
+    >
+      Redo <BiChevronRight />
+    </button>
+  </div>
+</div>
                 <p className="mt-3 fw-bold choosingStyle">Choose color</p>
                 <div className="row">
                   <div className="d-flex mb-3">
