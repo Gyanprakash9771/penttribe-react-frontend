@@ -146,9 +146,12 @@ function Hero() {
 
   const handleUndo = () => {
 
-    console.log("handleUndo is click")
+   console.log("Undo stack:", undoStack.current);
 
-  if (undoStack.current.length <= 1) return;
+  if (undoStack.current.length <= 1) {
+    console.log("Not enough history");
+    return;
+  }
 
   const canvas = editor.canvas;
 
