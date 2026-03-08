@@ -4783,38 +4783,74 @@ const handleAddEmoji = (emoji) => {
 
 };
 
-  //changes the font family of the text
-  const fontChange = (event) => {
-    var exists = false;
-    let no = 0;
-    if (sides == "one") {
-      no = 0;
-    }
-    else if (sides == "two") {
-      no = 1;
-    }
-    else if (sides == "three") {
-      no = 2;
-    }
-    else if (sides == "four") {
-      no = 3;
-    }
-    const obj = canvasArr[no].getObjects();
-    obj?.forEach((o) => {
-      if (o.type === "i-text") {
-        console.log("font value is :" + event.target.value);
-        exists = true;
-        o.set("fontFamily", event.target.value);
-        setFontValue(event.target.value);
-        canvasArr[no].bringToFront(o);
-      } else if (o.type === "image") {
-        canvasArr[no].sendToBack(o);
-      }
-    });
-    // if (exists) {
-    //   editor?.canvas.renderAll();
-    // }
-  };
+  // //changes the font family of the text
+  // const fontChange = (event) => {
+  //   var exists = false;
+  //   let no = 0;
+  //   if (sides == "one") {
+  //     no = 0;
+  //   }
+  //   else if (sides == "two") {
+  //     no = 1;
+  //   }
+  //   else if (sides == "three") {
+  //     no = 2;
+  //   }
+  //   else if (sides == "four") {
+  //     no = 3;
+  //   }
+  //   const obj = canvasArr[no].getObjects();
+  //   obj?.forEach((o) => {
+  //     if (o.type === "i-text") {
+  //       console.log("font value is :" + event.target.value);
+  //       exists = true;
+  //       o.set("fontFamily", event.target.value);
+  //       setFontValue(event.target.value);
+  //       canvasArr[no].bringToFront(o);
+  //     } else if (o.type === "image") {
+  //       canvasArr[no].sendToBack(o);
+  //     }
+  //   });
+  //   // if (exists) {
+  //   //   editor?.canvas.renderAll();
+  //   // }
+  // };
+const fontChange = (event) => {
+  var exists = false;
+  let no = 0;
+
+  if (sides == "one") {
+    no = 0;
+  }
+  else if (sides == "two") {
+    no = 1;
+  }
+  else if (sides == "three") {
+    no = 2;
+  }
+  else if (sides == "four") {
+    no = 3;
+  }
+
+  const activeObject = canvasArr[no].getActiveObject();
+
+  if (activeObject && activeObject.type === "i-text") {
+
+    console.log("font value is :" + event.target.value);
+
+    exists = true;
+
+    activeObject.set("fontFamily", event.target.value);
+
+    setFontValue(event.target.value);
+
+    canvasArr[no].bringToFront(activeObject);
+  }
+
+  if (exists) {
+    canvasArr[no].renderAll();
+  }
+};
 
   //executes when a different image is selected and new canvas constraints are set
   const changeCanvas = (letter) => {
