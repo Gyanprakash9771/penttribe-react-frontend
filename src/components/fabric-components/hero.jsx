@@ -200,6 +200,38 @@ function Hero() {
 
     }
   },[otherImages])
+
+  useEffect(() => {
+
+  const handleKeyDown = (event) => {
+
+    // Ctrl + Z → Undo
+    if (event.ctrlKey && event.key === "z") {
+      event.preventDefault();
+      handleUndo();
+    }
+
+    // Ctrl + Y → Redo
+    if (event.ctrlKey && event.key === "y") {
+      event.preventDefault();
+      handleRedo();
+    }
+
+    // Ctrl + Shift + Z → Redo
+    if (event.ctrlKey && event.shiftKey && event.key === "Z") {
+      event.preventDefault();
+      handleRedo();
+    }
+
+  };
+
+  window.addEventListener("keydown", handleKeyDown);
+
+  return () => {
+    window.removeEventListener("keydown", handleKeyDown);
+  };
+
+}, [sides, canvasArr]);  
   const handleChangeImage = (data, letter) => {
     console.log(data,"data")
     setOtherImg(data)
