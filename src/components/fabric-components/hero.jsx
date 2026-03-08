@@ -4769,6 +4769,7 @@ function Hero() {
   canvasArr[no].bringToFront(shape);
   canvasArr[no].setActiveObject(shape);
   canvasArr[no].renderAll();
+  saveCanvasState(); 
 
 };
 const handleAddEmoji = (emoji) => {
@@ -4812,6 +4813,7 @@ const handleAddEmoji = (emoji) => {
   canvasArr[no].bringToFront(emojiText);
   canvasArr[no].setActiveObject(emojiText);
   canvasArr[no].renderAll();
+  saveCanvasState();
 
 };
 
