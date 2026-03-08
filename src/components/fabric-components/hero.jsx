@@ -201,37 +201,7 @@ function Hero() {
     }
   },[otherImages])
 
-  useEffect(() => {
-
-  const handleKeyDown = (event) => {
-
-    // Ctrl + Z → Undo
-    if (event.ctrlKey && event.key === "z") {
-      event.preventDefault();
-      handleUndo();
-    }
-
-    // Ctrl + Y → Redo
-    if (event.ctrlKey && event.key === "y") {
-      event.preventDefault();
-      handleRedo();
-    }
-
-    // Ctrl + Shift + Z → Redo
-    if (event.ctrlKey && event.shiftKey && event.key === "Z") {
-      event.preventDefault();
-      handleRedo();
-    }
-
-  };
-
-  window.addEventListener("keydown", handleKeyDown);
-
-  return () => {
-    window.removeEventListener("keydown", handleKeyDown);
-  };
-
-}, [sides, canvasArr]);  
+  
   const handleChangeImage = (data, letter) => {
     console.log(data,"data")
     setOtherImg(data)
@@ -4769,7 +4739,6 @@ function Hero() {
   canvasArr[no].bringToFront(shape);
   canvasArr[no].setActiveObject(shape);
   canvasArr[no].renderAll();
-  saveCanvasState(); 
 
 };
 const handleAddEmoji = (emoji) => {
@@ -4813,7 +4782,6 @@ const handleAddEmoji = (emoji) => {
   canvasArr[no].bringToFront(emojiText);
   canvasArr[no].setActiveObject(emojiText);
   canvasArr[no].renderAll();
-  saveCanvasState();
 
 };
 
@@ -5335,40 +5303,30 @@ const fontChange = (event) => {
   };
 
   const ref = useFabric((fabricCanvas) => {
+    canvasAddArr[0] = fabricCanvas;
 
-  canvasAddArr[0] = fabricCanvas;
+    fabricCanvas.preserveObjectStacking = true;
+    fabricCanvas.controlsAboveOverlay = true;
+    fabricCanvas.setHeight(612);
+    fabricCanvas.setWidth(470);
 
-  fabricCanvas.preserveObjectStacking = true;
-  fabricCanvas.controlsAboveOverlay = true;
-  fabricCanvas.setHeight(612);
-  fabricCanvas.setWidth(470);
 
-  setCanvasArr(canvasAddArr);
+    setCanvasArr(canvasAddArr);
+  });
 
-  // ⭐ save initial state
-  const json = fabricCanvas.toJSON();
-  undoStack.current[0].push(json);
+  const refTwo = useFabric((fabricCanvas) => {
+    canvasAddArr[1] = fabricCanvas;
 
-});
+    fabricCanvas.preserveObjectStacking = true;
+    fabricCanvas.controlsAboveOverlay = true;
+    fabricCanvas.setHeight(612);
+    fabricCanvas.setWidth(470);
 
- const refTwo = useFabric((fabricCanvas) => {
 
-  canvasAddArr[1] = fabricCanvas;
+    setCanvasArr(prevArray => [...prevArray, fabricCanvas]);
 
-  fabricCanvas.preserveObjectStacking = true;
-  fabricCanvas.controlsAboveOverlay = true;
-  fabricCanvas.setHeight(612);
-  fabricCanvas.setWidth(470);
-
-  setCanvasArr(prevArray => [...prevArray, fabricCanvas]);
-
-  console.log("canvas array is :", canvasAddArr);
-
-  // ⭐ save initial state
-  const json = fabricCanvas.toJSON();
-  undoStack.current[1].push(json);
-
-});
+    console.log("canvas array is :", canvasAddArr)
+  });
 
   useEffect(() => {
     console.log("canvas array changed", canvasArr)
