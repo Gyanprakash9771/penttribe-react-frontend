@@ -5335,34 +5335,40 @@ const fontChange = (event) => {
   };
 
   const ref = useFabric((fabricCanvas) => {
-    canvasAddArr[0] = fabricCanvas;
 
-    fabricCanvas.preserveObjectStacking = true;
-    fabricCanvas.controlsAboveOverlay = true;
-    fabricCanvas.setHeight(612);
-    fabricCanvas.setWidth(470);
-    // ⭐ ADD THIS
-  fabricCanvas.on("object:added", saveCanvasState);
-  fabricCanvas.on("object:modified", saveCanvasState);
-  fabricCanvas.on("object:removed", saveCanvasState);
-    setCanvasArr(canvasAddArr);
-  });
+  canvasAddArr[0] = fabricCanvas;
 
-  const refTwo = useFabric((fabricCanvas) => {
-    canvasAddArr[1] = fabricCanvas;
+  fabricCanvas.preserveObjectStacking = true;
+  fabricCanvas.controlsAboveOverlay = true;
+  fabricCanvas.setHeight(612);
+  fabricCanvas.setWidth(470);
 
-    fabricCanvas.preserveObjectStacking = true;
-    fabricCanvas.controlsAboveOverlay = true;
-    fabricCanvas.setHeight(612);
-    fabricCanvas.setWidth(470);
-    // ⭐ ADD THIS
-  fabricCanvas.on("object:added", saveCanvasState);
-  fabricCanvas.on("object:modified", saveCanvasState);
-  fabricCanvas.on("object:removed", saveCanvasState);
-    setCanvasArr(prevArray => [...prevArray, fabricCanvas]);
+  setCanvasArr(canvasAddArr);
 
-    console.log("canvas array is :", canvasAddArr)
-  });
+  // ⭐ save initial state
+  const json = fabricCanvas.toJSON();
+  undoStack.current[0].push(json);
+
+});
+
+ const refTwo = useFabric((fabricCanvas) => {
+
+  canvasAddArr[1] = fabricCanvas;
+
+  fabricCanvas.preserveObjectStacking = true;
+  fabricCanvas.controlsAboveOverlay = true;
+  fabricCanvas.setHeight(612);
+  fabricCanvas.setWidth(470);
+
+  setCanvasArr(prevArray => [...prevArray, fabricCanvas]);
+
+  console.log("canvas array is :", canvasAddArr);
+
+  // ⭐ save initial state
+  const json = fabricCanvas.toJSON();
+  undoStack.current[1].push(json);
+
+});
 
   useEffect(() => {
     console.log("canvas array changed", canvasArr)
