@@ -5339,8 +5339,10 @@ const fontChange = (event) => {
     fabricCanvas.controlsAboveOverlay = true;
     fabricCanvas.setHeight(612);
     fabricCanvas.setWidth(470);
-
-
+    // ⭐ ADD THIS
+  fabricCanvas.on("object:added", saveCanvasState);
+  fabricCanvas.on("object:modified", saveCanvasState);
+  fabricCanvas.on("object:removed", saveCanvasState);
     setCanvasArr(canvasAddArr);
   });
 
@@ -5351,8 +5353,10 @@ const fontChange = (event) => {
     fabricCanvas.controlsAboveOverlay = true;
     fabricCanvas.setHeight(612);
     fabricCanvas.setWidth(470);
-
-
+    // ⭐ ADD THIS
+  fabricCanvas.on("object:added", saveCanvasState);
+  fabricCanvas.on("object:modified", saveCanvasState);
+  fabricCanvas.on("object:removed", saveCanvasState);
     setCanvasArr(prevArray => [...prevArray, fabricCanvas]);
 
     console.log("canvas array is :", canvasAddArr)
