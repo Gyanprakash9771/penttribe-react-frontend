@@ -8410,7 +8410,7 @@ const fontChange = (event) => {
 <option value="Quicksand" style={{fontFamily:"Quicksand"}}>Quicksand</option>
                       </select>
                     </div>
-                    {/* <div className="col-md-6 mt-2">
+                    <div className="col-md-6 mt-2">
                       <select
                         id="selFontSize"
                         name="selFontSize"
@@ -8428,7 +8428,7 @@ const fontChange = (event) => {
                         <option value="50">50</option>
                         <option value="60">60</option>
                       </select>
-                    </div> */}
+                    </div>
                     <div className="col-md-12">
                       <i
                         className="fa fa-align-left shadow rounded"
