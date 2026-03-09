@@ -124,7 +124,7 @@ function Hero() {
 
   const saveCanvasState = () => {
 
-    if (isHistoryProcessing.current) return;
+  if (isHistoryProcessing.current) return;
 
   const index = getCanvasIndex();
 
@@ -143,7 +143,7 @@ function Hero() {
 
   const index = getCanvasIndex();
 
-  if (undoStack.current[index].length == 0) return;
+  if (undoStack.current[index].length === 0) return;
 
   const canvas = canvasArr[index];
 
@@ -7816,7 +7816,7 @@ const fontChange = (event) => {
                         <div
                           id="canvasEle"
                           ref={designRef}
-                          className={canvasStyles["canvas-container"]}//class->className
+                          className={canvasStyles["canvas-container"]}
                         >
                           {fabricInfo && fabricInfo.productId !== undefined && sides === "one" ? (
                             <canvas id="canvasOne" ref={ref} width={470} height={612} className={canvasStyles.canvasSet} />
