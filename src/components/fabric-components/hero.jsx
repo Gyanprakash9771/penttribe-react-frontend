@@ -8097,7 +8097,7 @@ const fontChange = (event) => {
                   </div>
 
                 </div>
-                <div className="ps-3">
+                <div>
                       <a href="#">
                         <button
                           onClick={handleRemoveText}
