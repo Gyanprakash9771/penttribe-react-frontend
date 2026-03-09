@@ -8097,6 +8097,18 @@ const fontChange = (event) => {
                   </div>
 
                 </div>
+                <div className="ps-3">
+                      <a href="#">
+                        <button
+                          onClick={handleRemoveText}
+                          className={
+                            "btn" + " " + styles.orderNowBtn + "  px-2 py-1"
+                          }
+                        >
+                          Remove
+                        </button>
+                      </a>
+                    </div>
 
                 <p className="mt-3 fw-bold choosingStyle">Choose color</p>
                 <div className="row">
@@ -8357,18 +8369,7 @@ const fontChange = (event) => {
                         Add Text
                       </button>
                     </div>
-                    <div className="ps-3">
-                      <a href="#">
-                        <button
-                          onClick={handleRemoveText}
-                          className={
-                            "btn" + " " + styles.orderNowBtn + "  px-4 py-2"
-                          }
-                        >
-                          Remove
-                        </button>
-                      </a>
-                    </div>
+                    
                   </div>
                 </div>
                 {addText ? (
