@@ -122,6 +122,16 @@ function Hero() {
   return 0;
   };
 
+const changePrintableBackground = () => {
+  if (!printableRect || !editor) return;
+
+  const color = prompt("Enter background color");
+
+  printableRect.set("fill", color);
+
+  editor.canvas.renderAll();
+};
+
   const saveCanvasState = () => {
 
     if (isHistoryProcessing.current) return;
@@ -635,6 +645,9 @@ function Hero() {
         fill: "transparent",
         
       });
+      editor.canvas.add(Rect);
+
+     setPrintableRect(Rect);   
       
       if (!aop) {
         //if a design is moved out of the constraint it gets clipped
@@ -8239,6 +8252,7 @@ const fontChange = (event) => {
   </div>
 
 )}
+              
                 <div className="d-flex mt-3 mb-3 ">
                   <div className="me-5 fw-bold choosingStyle">Choose size</div>
                   <div className="mx-5 px-5 choosingSize">
@@ -8367,10 +8381,9 @@ const fontChange = (event) => {
                       >
                         Add Text
                       </button>
-                    </div>
-                    
+                    </div> 
                   </div>
-                
+                </div>
                 {addText ? (
                   <div
                     className="row"
@@ -8448,12 +8461,18 @@ const fontChange = (event) => {
                     </div>
                     <div className="col-md-12">
                       <div className="color-picker"></div>
+                      <i
+                      className="fa fa-fill-drip"
+                      style={{ marginLeft: 15, cursor: "pointer" }}
+                      onClick={changePrintableBackground}
+                      ></i>
                     </div>
                   </div>
+                  
+                  
                 ) : (
                   <></>
                 )}
-                </div>
                 {/* <div className="row">
                   <div className="col-md-12">
                     <input
