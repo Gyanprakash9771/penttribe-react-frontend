@@ -8368,18 +8368,7 @@ const fontChange = (event) => {
                         Add Text
                       </button>
                     </div>
-                    <div className="ps-3">
-                      <a href="#">
-                        <button
-                          onClick={handleRemoveText}
-                          className={
-                            "btn" + " " + styles.orderNowBtn + "  px-4 py-2"
-                          }
-                        >
-                          Remove
-                        </button>
-                      </a>
-                    </div>
+                    
                   </div>
                 </div>
                 {addText ? (
