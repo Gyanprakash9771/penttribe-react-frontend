@@ -8095,19 +8095,8 @@ const fontChange = (event) => {
                      Redo
                     </button>
                   </div>
+
                 </div>
-                <div className="ps-2">
-                      <a href="#">
-                        <button
-                          onClick={handleRemoveText}
-                          className={
-                            "btn" + " " + styles.orderNowBtn + "  px-2 py-1"
-                          }
-                        >
-                          Remove
-                        </button>
-                      </a>
-                    </div>
 
                 <p className="mt-3 fw-bold choosingStyle">Choose color</p>
                 <div className="row">
@@ -8239,7 +8228,6 @@ const fontChange = (event) => {
   </div>
 
 )}
-
                 <div className="d-flex mt-3 mb-3 ">
                   <div className="me-5 fw-bold choosingStyle">Choose size</div>
                   <div className="mx-5 px-5 choosingSize">
@@ -8368,7 +8356,19 @@ const fontChange = (event) => {
                       >
                         Add Text
                       </button>
-                    </div> 
+                    </div>
+                    <div className="ps-3">
+                      <a href="#">
+                        <button
+                          onClick={handleRemoveText}
+                          className={
+                            "btn" + " " + styles.orderNowBtn + "  px-4 py-2"
+                          }
+                        >
+                          Remove
+                        </button>
+                      </a>
+                    </div>
                   </div>
                 </div>
                 {addText ? (
@@ -8386,25 +8386,27 @@ const fontChange = (event) => {
                         value={fontValue}
                       >
                        <option value="select">Select a Font</option>
-                      <option value="Arial" style={{fontFamily:"Arial"}}>Arial</option>
-                      <option value="Times New Roman" style={{fontFamily:"Times New Roman"}}>Times New Roman</option>
-                      <option value="Verdana" style={{fontFamily:"Verdana"}}>Verdana</option>
-                      <option value="Courier New" style={{fontFamily:"Courier New"}}>Courier New</option>
-                      <option value="Poppins" style={{fontFamily:"Poppins"}}>Poppins</option>
-                      <option value="Roboto" style={{fontFamily:"Roboto"}}>Roboto</option>
-                      <option value="Montserrat" style={{fontFamily:"Montserrat"}}>Montserrat</option>
-                      <option value="Lobster" style={{fontFamily:"Lobster"}}>Lobster</option>
-                      <option value="Oswald" style={{fontFamily:"Oswald"}}>Oswald</option>
-                      <option value="Raleway" style={{fontFamily:"Raleway"}}>Raleway</option>
-                      <option value="Playfair Display" style={{fontFamily:"Playfair Display"}}>Playfair Display</option>
-                      <option value="Ubuntu" style={{fontFamily:"Ubuntu"}}>Ubuntu</option>
-                      <option value="Pacifico" style={{fontFamily:"Pacifico"}}>Pacifico</option>
-                      <option value="Anton" style={{fontFamily:"Anton"}}>Anton</option>
-                      <option value="Bebas Neue" style={{fontFamily:"Bebas Neue"}}>Bebas Neue</option>
-                      <option value="Nunito" style={{fontFamily:"Nunito"}}>Nunito</option>
-                      <option value="Merriweather" style={{fontFamily:"Merriweather"}}>Merriweather</option>
-                      <option value="Dancing Script" style={{fontFamily:"Dancing Script"}}>Dancing Script</option>
-                      <option value="Quicksand" style={{fontFamily:"Quicksand"}}>Quicksand</option>
+
+<option value="Arial" style={{fontFamily:"Arial"}}>Arial</option>
+<option value="Times New Roman" style={{fontFamily:"Times New Roman"}}>Times New Roman</option>
+<option value="Verdana" style={{fontFamily:"Verdana"}}>Verdana</option>
+<option value="Courier New" style={{fontFamily:"Courier New"}}>Courier New</option>
+
+<option value="Poppins" style={{fontFamily:"Poppins"}}>Poppins</option>
+<option value="Roboto" style={{fontFamily:"Roboto"}}>Roboto</option>
+<option value="Montserrat" style={{fontFamily:"Montserrat"}}>Montserrat</option>
+<option value="Lobster" style={{fontFamily:"Lobster"}}>Lobster</option>
+<option value="Oswald" style={{fontFamily:"Oswald"}}>Oswald</option>
+<option value="Raleway" style={{fontFamily:"Raleway"}}>Raleway</option>
+<option value="Playfair Display" style={{fontFamily:"Playfair Display"}}>Playfair Display</option>
+<option value="Ubuntu" style={{fontFamily:"Ubuntu"}}>Ubuntu</option>
+<option value="Pacifico" style={{fontFamily:"Pacifico"}}>Pacifico</option>
+<option value="Anton" style={{fontFamily:"Anton"}}>Anton</option>
+<option value="Bebas Neue" style={{fontFamily:"Bebas Neue"}}>Bebas Neue</option>
+<option value="Nunito" style={{fontFamily:"Nunito"}}>Nunito</option>
+<option value="Merriweather" style={{fontFamily:"Merriweather"}}>Merriweather</option>
+<option value="Dancing Script" style={{fontFamily:"Dancing Script"}}>Dancing Script</option>
+<option value="Quicksand" style={{fontFamily:"Quicksand"}}>Quicksand</option>
                       </select>
                     </div>
                     {/* <div className="col-md-6 mt-2">
