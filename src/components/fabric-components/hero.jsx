@@ -8096,23 +8096,7 @@ const fontChange = (event) => {
                     </button>
                   </div>
                 </div>
-
-                                <div className="row">
-                  <div className="d-flex mb-3">
-                    <div className="pe-3">
-                      <button
-                        onClick={handleAddText}
-                        className={
-                          "btn" +
-                          " " +
-                          styles.startSellingBtn +
-                          "  px-4 py-2 avenier"
-                        }
-                      >
-                        Add Text
-                      </button>
-                    </div>
-                    <div className="ps-3">
+                <div className="ps-3">
                       <a href="#">
                         <button
                           onClick={handleRemoveText}
@@ -8124,8 +8108,6 @@ const fontChange = (event) => {
                         </button>
                       </a>
                     </div>
-                  </div>
-                </div>
 
                 <p className="mt-3 fw-bold choosingStyle">Choose color</p>
                 <div className="row">
@@ -8371,7 +8353,35 @@ const fontChange = (event) => {
                 </div>
                 <br />
                 <br />
-
+                <div className="row">
+                  <div className="d-flex mb-3">
+                    <div className="pe-3">
+                      <button
+                        onClick={handleAddText}
+                        className={
+                          "btn" +
+                          " " +
+                          styles.startSellingBtn +
+                          "  px-4 py-2 avenier"
+                        }
+                      >
+                        Add Text
+                      </button>
+                    </div>
+                    <div className="ps-3">
+                      <a href="#">
+                        <button
+                          onClick={handleRemoveText}
+                          className={
+                            "btn" + " " + styles.orderNowBtn + "  px-4 py-2"
+                          }
+                        >
+                          Remove
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+                </div>
                 {addText ? (
                   <div
                     className="row"
