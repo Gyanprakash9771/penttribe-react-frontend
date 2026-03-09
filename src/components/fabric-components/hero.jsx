@@ -8090,7 +8090,7 @@ const fontChange = (event) => {
                   <div className="ps-3">
                     <button
                       onClick={handleRedo}
-                      className={"btn " + styles.orderNowBtn + " px-2 py-1"}
+                      className={"btn " + styles.startSellingBtn + " px-2 py-1"}
                     >
                      Redo
                     </button>
@@ -8102,7 +8102,7 @@ const fontChange = (event) => {
                         <button
                           onClick={handleRemoveText}
                           className={
-                            "btn" + " " + styles.orderNowBtn + "  px-2 py-1"
+                            "btn" + " " + styles.startSellingBtn + "  px-2 py-1"
                           }
                         >
                           Remove
