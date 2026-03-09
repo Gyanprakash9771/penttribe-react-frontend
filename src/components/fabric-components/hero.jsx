@@ -8414,7 +8414,7 @@ const fontChange = (event) => {
                       <select
                         id="selFontSize"
                         name="selFontSize"
-                        className="form-select form-select-sm selectpicker col-md-3"
+                        className="form-select form-select-sm selectpicker col-md-1"
                         title="font size"
                         onChange={fontsizeChange}
                         value={fontSize}
