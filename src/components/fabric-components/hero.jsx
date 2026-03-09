@@ -8102,7 +8102,7 @@ const fontChange = (event) => {
                         <button
                           onClick={handleRemoveText}
                           className={
-                            "btn" + " " + styles.startSellingBtn + "  px-2 py-1"
+                            "btn" + " " + styles.orderNowBtn + "  px-2 py-1"
                           }
                         >
                           Remove
