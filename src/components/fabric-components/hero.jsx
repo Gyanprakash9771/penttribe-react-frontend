@@ -8173,7 +8173,7 @@ const fontChange = (event) => {
   <div className="d-flex mb-3" style={{ gap: "10px" }}>
 
     <button
-      className={"btn " + styles.startSellingBtn + " px-4 py-2"}
+      className={"btn " + styles.startSellingBtn + " px-2 py-1"}
       onClick={() => {
         setShowShapes(!showShapes);
         setShowEmoji(false);
@@ -8182,7 +8182,7 @@ const fontChange = (event) => {
       Shapes
     </button>
     <button
-      className={"btn " + styles.startSellingBtn + " px-4 py-2"}
+      className={"btn " + styles.startSellingBtn + " px-2 py-1"}
        onClick={() => {
     setShowEmoji(!showEmoji);
     setShowShapes(false);
