@@ -8081,7 +8081,7 @@ const fontChange = (event) => {
                   <div className="pe-3">
                     <button
                        onClick={handleUndo}
-                       className={"btn " + styles.startSellingBtn + " px-4 py-2"}
+                       className={"btn " + styles.startSellingBtn + " px-2 py-1"}
                     >
                       Undo
                     </button>
@@ -8090,7 +8090,7 @@ const fontChange = (event) => {
                   <div className="ps-3">
                     <button
                       onClick={handleRedo}
-                      className={"btn " + styles.orderNowBtn + " px-4 py-2"}
+                      className={"btn " + styles.orderNowBtn + " px-2 py-1"}
                     >
                      Redo
                     </button>
